@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width-device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="bootstrap.min.css">
+        <link rel="stylesheet" href="estilos.css">
+        <script src="vue.js"></script>
+        <title>Vue.js</title>
+    </head>
+    <body>
+        <header class="bg-success text-center text-white">
+            <span class="h2">Componentes Template</span>
+        </header>
+        <main>
+            <elegir-ganador :listado="personas" inline-template>
+                <div>
+                    <h1 v-if="ganador">El ganador es: {{ganador}}</h1>
+                    <template v-else>
+                         <h1>Participantes</h1>
+                         <ul>
+                            <li v-for="persona in listado">{{persona}}</li>
+                         </ul>
+                    </template>
+                    <button @click="elegirGanador">Elegir ganador</button>
+                </div>
+            </elegir-ganador>
+            <pre>{{$data}}</pre>
+        </main>
+        
+        <!--Con tag template :)-->
+        <!--<template id="elegir-ganador-template">
+            <div>
+                <h1 v-if="ganador">El ganador es: {{ganador}}</h1>
+                <template v-else>
+                     <h1>Participantes</h1>
+                     <ul>
+                        <li v-for="persona in listado">{{persona}}</li>
+                     </ul>
+                </template>
+                <button @click="elegirGanador">Elegir ganador</button>
+            </div>
+        </template>-->
+        
+        <!--Con script :(-->
+        <!--<script type="text/template" id="elegir-ganador-template">
+            <div>
+                <h1 v-if="ganador">El ganador es: {{ganador}}</h1>
+                <template v-else>
+                     <h1>Participantes</h1>
+                     <ul>
+                        <li v-for="persona in listado">{{persona}}</li>
+                     </ul>
+                </template>
+                <button @click="elegirGanador">Elegir ganador</button>
+            </div>
+        </script>-->
+
+        <footer class="bg-dark text-center text-white">
+            <span class="h2">Por: José Guadalupe</span>
+        </footer>
+
+        <script src="script.js"></script>
+    </body>
+</html>
